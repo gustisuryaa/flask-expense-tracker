@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker Gusti</title>
+    <style>
+        :root {
+            --primary-color: #2ecc71; /* Warna hijau modern */
+            --background-color: #f4f7f6;
+            --text-color: #333;
+            --card-background: #fff;
+            --border-radius: 8px;
+            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--background-color);
+            color: var(--text-color);
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 600px;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #2c3e50;
+            font-weight: 600;
+            font-size: 2em;
+        }
+
+        
+        .summary-card {
+            background-color: var(--card-background);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .summary-label {
+            font-size: 0.9em;
+            color: #7f8c8d;
+            margin-bottom: 5px;
+        }
+
+        .summary-amount {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        
+        .form-container {
+            background-color: var(--card-background);
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            font-size: 0.9em;
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: 500;
+        }
+
+        input {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 1em;
+            font-family: var(--font-family);
+        }
+
+        input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(46, 204, 113, 0.2);
+        }
+
+        button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 6px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-family: var(--font-family);
+            font-weight: 600;
+        }
+
+        button:hover {
+            background-color: #27ae60;
+        }
+
+       
+        .expense-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .expense-item {
+            background-color: var(--card-background);
+            border-radius: var(--border-radius);
+            padding: 15px 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .expense-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .item-title {
+            font-weight: 600;
+            color: #444;
+        }
+
+        .item-amount {
+            color: #27ae60;
+            font-weight: bold;
+        }
+    </style>
+    </head>
+<body>
+    <div class="container">
+        <h1>Catatan Pengeluaran</h1>
+
+        
+        <div class="summary-card">
+            <div class="summary-label">Total Pengeluaran</div>
+            <div class="summary-amount">Rp {{ total }}</div>
+        </div>
+
+        
+        <div class="form-container">
+            <form method="POST">
+                <div class="form-group">
+                    <label for="title">Deskripsi Pengeluaran</label>
+                    <input type="text" id="title" name="title" placeholder="Misal: Nasi Padang" required>
+                </div>
+                <div class="form-group">
+                    <label for="amount">Jumlah (Rp)</label>
+                    <input type="number" id="amount" name="amount" placeholder="Misal: 12000" required>
+                </div>
+                <button type="submit">Tambah Catatan</button>
+            </form>
+        </div>
+
+        
+        <div class="expense-list">
+            {% for expense in expenses %}
+                <div class="expense-item">
+                    <div class="item-title">{{ expense.title }}</div>
+                    <div class="item-amount">Rp {{ expense.amount }}</div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
