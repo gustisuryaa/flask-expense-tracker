@@ -1,21 +1,21 @@
-# 💰 Personal Expense Tracker (Flask + SQLite)
+# Personal Expense Tracker (Flask + SQLite)
 
-Aplikasi berbasis web sederhana untuk mencatat pengeluaran keuangan harian. Project ini dibuat untuk mempelajari operasi **CRUD (Create, Read, Update, Delete)** dasar menggunakan framework Flask dan Object-Relational Mapping (ORM) SQLAlchemy dengan database SQLite.
+A simple web-based application for tracking daily expenses. This project was created to learn and demonstrate basic **CRUD (Create, Read, Update, Delete)** operations using the Flask framework and SQLAlchemy Object-Relational Mapping (ORM) with an SQLite database.
 
-## 🚀 Fitur
-- Menambahkan catatan pengeluaran baru (Nama Pengeluaran & Jumlah Uang).
-- Menampilkan seluruh daftar pengeluaran yang tersimpan di database.
-- Menghitung secara otomatis total pengeluaran yang sudah dicatat.
-- Data tersimpan secara permanen (tidak hilang saat aplikasi dimatikan).
+## Features
+- Add new expense records (Expense Description & Amount).
+- View the complete list of expenses stored securely in the database.
+- Automatically calculate the total accumulated expenses.
+- Persistent data storage (data remains saved even after the application is closed).
 
-## 🛠️ Tech Stack
+## Tech Stack
 - **Backend:** Python, Flask
 - **Database:** SQLite, Flask-SQLAlchemy
-- **Frontend:** HTML5 (Clean Layout)
+- **Frontend:** HTML5, CSS3 (Modern and Clean UI)
 
-## 💻 Cara Install dan Menjalankan di Lokal
+## How to Install and Run Locally
 
-1. **Clone repository ini:**
+1. **Clone this repository:**
    ```bash
    git clone [https://github.com/gustisuryaa/flask-expense-tracker.git](https://github.com/gustisuryaa/flask-expense-tracker.git)
    cd flask-expense-tracker
